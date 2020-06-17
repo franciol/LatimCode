@@ -4,24 +4,24 @@
 EBNF
 
 
-PROGRAM = 'pelagus?', COMMAND , '?prope' ;​
-BLOCK = '{', { COMMAND }, '}' ;​
-COMMAND = ( λ | ASSIGNMENT | PRINT ), ';' | BLOCK | LOOP | DO_LOOP | CONDITIONAL | FUNCTION_CALL | RETURN | FUNCTION_DEF;​
-ASSIGNMENT = IDENTIFIER, '=', RELEXPR, ';' ;​
-PRINT = 'ostende', RELEXPR, ';' ;​
-LOOP = 'dum' , '(' , RELEXPR , ')' , COMMAND ;​
-FUNCTION_DEF = 'officium' , LETTER, { LETTER | DIGIT | '_' } , '('  , {RELEXPR}  , ')' , COMMAND ;​
-FUNCTION_CALL = LETTER, { LETTER | DIGIT | '_' }, '('  , {IDENTIFIER}  , ')';​
-RETURN = 'reditus' , RELEXPR ;​
-DO_LOOP = 'facite' , COMMAND , 'dum' , '(' , RELEXPR , ')' ;​
-CONDITIONAL = 'si' , '(', RELEXPR , ')' , COMMAND , λ | ('alium' , COMMAND )​
-RELEXPR = EXPRESSION, { ('==' | '>' | '<' ) , EXPRESSION} ;​
-EXPRESSION = TERM, { ('+' | '-' | 'uel' | '.'), TERM } ;​
-TERM = FACTOR, { ('*' | '/' | 'et' | '^' ), FACTOR } ;​
-FACTOR = (('+' | '-' | '!' ), FACTOR) | NUMBER | '(', RELEXPR, ')' | IDENTIFIER | 'initus()' | STRING | BOOL | FUNCTION_CALL ;​
-IDENTIFIER = '::', LETTER, { LETTER | DIGIT | '_' } ;​
-NUMBER = DIGIT, { DIGIT } ;​
-STRING = '"', ((' ' | LETTER | DIGIT | '' ) , { ( ' ' | LETTER | DIGIT | '') });​
-LETTER = ( a | ... | z | A | ... | Z ) ;​
-DIGIT = ( 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 ) ;​
-BOOL = ( 'verum' | 'falsus') ;
+> PROGRAM = 'pelagus?', COMMAND , '?prope' ;
+> BLOCK = '{', { COMMAND }, '}' ;
+> COMMAND = ( λ | ASSIGNMENT | PRINT ), ';' | BLOCK | LOOP | DO_LOOP | CONDITIONAL | FUNCTION_CALL | RETURN | FUNCTION_DEF;
+> ASSIGNMENT = IDENTIFIER, '=', RELEXPR, ';' ;
+> PRINT = 'ostende', RELEXPR, ';' ;
+> LOOP = 'dum' , '(' , RELEXPR , ')' , COMMAND ;
+> FUNCTION_DEF = 'officium' , LETTER, { LETTER | DIGIT | '_' } , '('  , {RELEXPR}  , ')' , COMMAND ;
+> FUNCTION_CALL = LETTER, { LETTER | DIGIT | '_' }, '('  , {IDENTIFIER}  , ')';
+> RETURN = 'reditus' , RELEXPR ;
+> DO_LOOP = 'facite' , COMMAND , 'dum' , '(' , RELEXPR , ')' ;
+> CONDITIONAL = 'si' , '(', RELEXPR , ')' , COMMAND , λ | ('alium' , COMMAND )
+> RELEXPR = EXPRESSION, { ('==' | '>' | '<' ) , EXPRESSION} ;
+> EXPRESSION = TERM, { ('+' | '-' | 'uel' | '.'), TERM } ;
+> TERM = FACTOR, { ('*' | '/' | 'et' | '^' ), FACTOR } ;
+> FACTOR = (('+' | '-' | '!' ), FACTOR) | NUMBER | '(', RELEXPR, ')' | IDENTIFIER | 'initus()' | STRING | BOOL | FUNCTION_CALL;
+> IDENTIFIER = '::', LETTER, { LETTER | DIGIT | '_' } ;
+> NUMBER = DIGIT, { DIGIT } ;
+> STRING = '"', ((' ' | LETTER | DIGIT | '' ) , { ( ' ' | LETTER | DIGIT | '') });
+> LETTER = ( a | ... | z | A | ... | Z ) ;
+> DIGIT = ( 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 ) ;
+> BOOL = ( 'verum' | 'falsus') ;
