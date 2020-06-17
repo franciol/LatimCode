@@ -1,0 +1,73 @@
+program
+    : 'pelagus?' statum+ '?prope'
+    ;
+
+obstructionum
+    : '{', { statum }, '}' 
+    ;
+
+statum  
+    : 'ostende' test
+    | 'si' parentheseos statum
+    | 'si' parentheseos statum 'alium' statum
+    | 'dum' parentheseos statum
+    | 'facite' statum 'dum' parentheseos
+    | '{' statum* '}'
+    | expressio
+    ;
+
+parentheseos
+    : '(' expressio ')'
+    ;
+
+expressio
+    : str '=' expressio
+    | test
+    ;
+
+test
+    : test
+    | test '<' test
+    | test '>' test
+    | test '==' test
+    ;
+
+
+relationes
+    : operatio
+    | operatio '+' operatio
+    | operatio '-' operatio
+    | operatio 'uel' operatio
+    ;
+
+operatio
+    : genus
+    | genus '**' genus
+    | genus '*' genus
+    | genus '/' genus
+    | genus 'et' genus 
+    ;
+
+genus
+    : str
+    | integer
+    | parentheseos
+    ;
+
+str 
+    : FILUM
+    ;
+
+integer
+    : INT
+    ;
+
+FILUM
+    : [a-z]+
+    ;
+
+INT
+    : [0-9]+
+    ;
+
+

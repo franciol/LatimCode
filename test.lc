@@ -1,0 +1,35 @@
+pelagus?
+    officium testus(::value){
+        si( ::value < 2)
+        {
+            reditus ::value;
+        }
+        alium 
+        {
+            reditus testus(::value-1) + testus(::value-2);
+        }
+
+        
+
+    }
+
+
+
+    
+
+    ::w = initus();
+    /* comentario */
+    
+    ::res = testus(::w);
+
+    ostende ::res;
+    
+    facite 
+    { 
+        ::res = ::res-1; 
+        ostende ::res;
+    }
+    dum (::res > 1);
+
+?prope
+
